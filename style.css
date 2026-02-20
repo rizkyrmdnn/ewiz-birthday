@@ -1,0 +1,139 @@
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fff0f5;
+    /* Soft lavender blush */
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Landing Screen */
+#landing {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    transition: opacity 0.8s ease-out;
+}
+
+.envelope {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+.envelope h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ff6b81;
+}
+
+#openBtn {
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#openBtn:active {
+    transform: scale(0.95);
+}
+
+/* Main Content */
+.hidden {
+    display: none !important;
+}
+
+#mainContent {
+    animation: fadeIn 1.5s ease-in;
+    padding-bottom: 40px;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+header h1 {
+    color: #ff4757;
+    font-size: 2rem;
+}
+
+/* Memory Cards (Mobile Optimized) */
+.memory-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.memory-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    /* For scroll animation */
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.memory-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    /* Ensures images don't stretch */
+    background-color: #ffeaa7;
+    /* Placeholder color if image breaks */
+}
+
+.memory-text {
+    padding: 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #a4b0be;
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
