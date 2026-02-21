@@ -3,14 +3,119 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- Floating Background Animation --- */
+.background-orbs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Keeps the animation behind all your content */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    pointer-events: none;
+    /* Ensures you can still tap buttons through the invisible layer */
+}
+
+.background-orbs li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    /* Soft semi-transparent white */
+    border-radius: 50%;
+    /* Makes them perfect circles */
+    animation: float 25s linear infinite;
+    bottom: -150px;
+    /* Start below the screen */
+}
+
+/* Randomize the size, starting position, and speed of each orb */
+.background-orbs li:nth-child(1) {
+    left: 25%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 0s;
+}
+
+.background-orbs li:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.background-orbs li:nth-child(3) {
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.background-orbs li:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.background-orbs li:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.background-orbs li:nth-child(6) {
+    left: 75%;
+    width: 50px;
+    height: 50px;
+    animation-delay: 3s;
+}
+
+.background-orbs li:nth-child(7) {
+    left: 35%;
+    width: 70px;
+    height: 70px;
+    animation-delay: 7s;
+}
+
+/* The actual floating movement */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-1000px);
+        /* Move upwards */
+        opacity: 0;
+        /* Slowly fade out as it goes up */
+    }
+}
+
+/* Apply handwritten font to all headings */
+h1,
+h2,
+h3 {
+    font-family: 'Dancing Script', cursive;
 }
 
 body {
     background-color: #fff0f5;
-    /* Soft lavender blush */
     color: #333;
     overflow-x: hidden;
+    font-family: 'Quicksand', sans-serif;
+    /* New clean body font */
 }
 
 /* Landing Screen */
@@ -78,7 +183,7 @@ header {
     align-items: center;
     justify-content: center;
     /* Change text color to white for better contrast */
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 20px;
     /* Reduced padding for mobile */
 }
@@ -103,14 +208,14 @@ header {
 }
 
 /* Dark overlay to make text readable */
+/* Dark overlay with a gradient fade */
 .header-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Semi-transparent black overlay. Adjust 0.5 for more/less darkness */
-    background-color: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 60%, #fff0f5 100%);
 }
 
 /* Container for the text content */
@@ -124,6 +229,11 @@ header {
 header h1 {
     color: #ff4757;
     font-size: 2rem;
+}
+
+header h3 {
+    color: #000000;
+    font-size: 1rem;
 }
 
 /* Memory Cards (Mobile Optimized) */
